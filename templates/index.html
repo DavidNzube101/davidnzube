@@ -2,10 +2,127 @@
 <html>
 <head>
   <title>David Nzube - Fullstack Web Developer</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='media/Image Assets/download.png') }}">
 </head>
 <body>
-  <h1>{{ greeting }}</h1>
-  <p>Learn how to play the violin at your own pace!</p>
+	<header class="hero">
+		<!-- <video muted loop class="hero__video">
+		  <source src="{{ url_for('static', filename='media/Google I_O 2023 keynote in 16 minutes.mp4') }}" type="video/mp4">
+		</video> -->
+		<div style="background: url( {{url_for('static', filename='media/Image Assets/pexels-markus-spiske-2004161.jpg')}} ); background-size: cover; background-repeat: no-repeat;" class="hero__video">
+
+		<div id="hero-text__container">
+			<h1 data-value="David Nzube | FullStack Web Developer" id="hero-text">David Nzube | FullStack Web Developer</h1>
+			<div class="hero-button__conatiner">
+				<a href="#" download><button>Download CV/Resume</button></a>
+				<a href="#work"><button style="background: white; color: #558f98; border: 2px solid #558f98;">Portfolio</button></a>
+			</div>
+		</div>
+			
+		</div>
+		<nav class="hero__nav">
+			<div class="logo">
+				<span data-value="David." id="logo">David.</span>
+			</div>
+			<div class="h_links">
+				<a href="#about">About</a>
+				<a href="#skills">Skills</a>
+				<a href="#work">Portfolio</a>
+				<a href="#contact">Contact</a>
+			</div>
+		</nav>
+	</header>
+
+  <main>
+    <section id="about" class="about">
+      <h1>About Me</h1>
+      <p>I am a passionate (your profession) with experience in (your skills). I enjoy (your interests) and am always looking for new challenges.</p>
+      <img src="{{ url_for('static', filename='media/Image Assets/Screenshot_20230715-182141~2_3.jpg') }}" alt="Your Photo" class="about__photo">
+    </section>
+
+    <section id="skills">
+    	<div class="stat-container">
+	      	{% for SkillTitle, SkillDetails in Skills.items() %}
+	      		<div class="stat">
+	      			<h3 align="left" class="stat-title">
+	      				{{ SkillTitle }}
+	      			</h3>
+	      			<p> Related: {{ SkillDetails[0] }} </p>
+	      			<div class="stat-bar">
+	      				<div class="stat-bar-completed" style="width: {{ SkillDetails[1] }}% ;">{{ SkillDetails[1] }}%</div>
+	      			</div>
+	      		</div>
+	      	{% endfor %}
+	    </div>
+    </section>
+
+    <section id="work" class="work">
+    	<h2 align="center">My Portfolio</h2>
+    	<div class="shelf">
+    		<div class="work__grid">
+				<div class="work__card">
+					<img src="{{ url_for('static', filename='media/Image Assets/Project Pics/Poel_Wide.png') }}" alt="Project 1 Thumbnail" class="work__card-image">
+					<h3>Poel</h3>
+					<p>A really helpful tool for Python-Flask Developer. It automatically creates/generates the files needed for a Standard Flask App.</p>
+					<a href="https://www.github.com/DavidNzube101/Poel" class="work__card-link">GitHub →</a>
+				</div>
+    		</div>
+
+    		<div class="work__grid">
+				<div class="work__card">
+					<img src="{{ url_for('static', filename='media/Image Assets/Project Pics/VertexxDB.png') }}" alt="Project 1 Thumbnail" class="work__card-image">
+					<h3>VertexxDB</h3>
+					<p>A remote based JSON oriented database management system. VertexxDB uses SecJSON to secure data.</p>
+					<a href="https://www.github.com/DavidNzube101/VertexxDB" class="work__card-link">GitHub →</a>
+				</div>
+    		</div>
+
+    		<div class="work__grid">
+				<div class="work__card">
+					<img src="{{ url_for('static', filename='media/Image Assets/Project Pics/WRLD.png') }}" alt="Project 1 Thumbnail" class="work__card-image">
+					<h3>WRLD</h3>
+					<p>A static web development tool that web developers to quickly create, manage, test and maintain static websites.</p>
+					<a href="https://www.github.com/DavidNzube101/WRLD" class="work__card-link">GitHub →</a>
+				</div>
+    		</div>
+
+    		<div class="work__grid">
+				<div class="work__card">
+					<img src="{{ url_for('static', filename='media/Image Assets/Project Pics/Ps.png') }}" alt="Project 1 Thumbnail" class="work__card-image">
+					<h3>PaperShare</h3>
+					<p>A Learning Management Tool that allows teachers to give out homeworks/assignments to students, view them, record them and see insights.</p>
+					<a href="https://www.github.com/DavidNzube101/PaperShare" class="work__card-link">GitHub →</a>
+				</div>
+    		</div>
+    	</div>
+    	<br>
+    	<a href="/more-projects" target="_blank" class="a-text" style="transition: 0.5s ease-in-out; text-decoration: none; color: #558f98;">More →</a>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 align="center">Contact Me</h2>
+      <p align="center">Here are my contact handles.</p>
+      <div class="socials-container">
+      	<div class="social">
+      		<a href="https://www.instagram.com/quadavid.4">I</a>
+      	</div>
+      	<div class="social">
+      		<a href="https://www.twitter.com/davidnzubee">T</a>
+      	</div>
+      	<div class="social">
+      		<a href="https://www.wa.me/+2349131824725">W</a>
+      	</div>
+      	<div class="social">
+      		<a href="https://www.github.com/DavidNzube101">G</a>
+      	</div>
+      	<div class="social">
+      		<a href="mailto:david.nzube.offical22@gmail.com">Ma</a>
+      	</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
