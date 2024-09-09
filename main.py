@@ -30,10 +30,7 @@ projects = {
 @app.route('/')
 def home():
 
-	if "Desktop" == dv.detectDeviceType(request):
-		return render_template('index.html', Skills=skills)
-	else:
-		return render_template("mobile-view.html")
+	return render_template('index.html', Skills=skills, Projects=projects)
 
 @app.route('/i')
 def homeDkp():
@@ -49,6 +46,6 @@ def showMoreProjects():
 	return render_template('projects.html', Projects=projects, _len=len)
 
 if __name__ == "__main__":
-	# app.run(debug=True, port=5547)
+	# app.run(debug=True)
 
 	app.run()
